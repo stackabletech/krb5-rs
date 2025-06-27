@@ -55,22 +55,6 @@ repos:
 
   - repo: local
     hooks:
-      - id: regenerate-charts
-        name: regenerate-charts
-        language: system
-        entry: make regenerate-charts
-        stages: [pre-commit, pre-merge-commit]
-        pass_filenames: false
-        files: \.rs$|Cargo\.(toml|lock)
-
-      - id: regenerate-nix
-        name: regenerate-nix
-        language: system
-        entry: make regenerate-nix
-        stages: [pre-commit, pre-merge-commit]
-        pass_filenames: false
-        files: Cargo\.lock
-
       - id: cargo-test
         name: cargo-test
         language: system
