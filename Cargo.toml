@@ -1,0 +1,15 @@
+[workspace]
+members = ["rust/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.0.0-dev"
+authors = ["Stackable GmbH <info@stackable.tech>"]
+license = "Apache-2.0"
+edition = "2021"
+repository = "https://github.com/stackabletech/krb5-rs"
+
+[workspace.dependencies]
+bindgen = "0.71"
+pkg-config = "0.3"
+snafu = "0.8"
