@@ -92,7 +92,7 @@ dependencies = [
 
 [[package]]
 name = "krb5"
-version = "0.0.0-dev"
+version = "0.1.0"
 dependencies = [
  "krb5-sys",
  "snafu",
@@ -100,7 +100,7 @@ dependencies = [
 
 [[package]]
 name = "krb5-sys"
-version = "0.0.0-dev"
+version = "0.1.0"
 dependencies = [
  "bindgen",
  "pkg-config",
