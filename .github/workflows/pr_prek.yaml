@@ -1,5 +1,5 @@
 ---
-name: pre-commit
+name: prek
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ env:
 permissions: {}
 
 jobs:
-  pre-commit:
+  prek:
     runs-on: ubuntu-latest
     steps:
       - name: Install host dependencies
