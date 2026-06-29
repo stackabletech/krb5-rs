@@ -32,9 +32,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: ${{ env.RUST_TOOLCHAIN_VERSION }}
+      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}"
 
       - name: Build Crate Docs
         run: cargo doc --no-deps --all-features

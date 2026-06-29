@@ -40,9 +40,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: ${{ env.RUST_TOOLCHAIN_VERSION }}
+      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}"
       - uses: Swatinem/rust-cache@9d47c6ad4b02e050fd481d890b2ea34778fd09d6 # v2.7.8
         with:
           key: udeps
@@ -81,10 +79,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: ${{ env.RUST_TOOLCHAIN_VERSION }}
-          components: rustfmt
+      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}" --components rustfmt
       - uses: Swatinem/rust-cache@9d47c6ad4b02e050fd481d890b2ea34778fd09d6 # v2.7.8
         with:
           key: doc
@@ -104,13 +99,10 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: ${{ env.RUST_TOOLCHAIN_VERSION }}
-          # rust-src is required for trybuild stderr output comparison to work
-          # for our cases.
-          # See: https://github.com/dtolnay/trybuild/issues/236#issuecomment-1620950759
-          components: rust-src
+      # rust-src is required for trybuild stderr output comparison to work
+      # for our cases.
+      # See: https://github.com/dtolnay/trybuild/issues/236#issuecomment-1620950759
+      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}" --components rust-src
       - uses: Swatinem/rust-cache@9d47c6ad4b02e050fd481d890b2ea34778fd09d6 # v2.7.8
         with:
           key: test
