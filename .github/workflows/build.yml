@@ -79,7 +79,7 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}" --components rustfmt
+      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}" --component rustfmt
       - uses: Swatinem/rust-cache@779680da715d629ac1d338a641029a2f4372abb5 # v2.8.2
         with:
           key: doc
@@ -102,7 +102,7 @@ jobs:
       # rust-src is required for trybuild stderr output comparison to work
       # for our cases.
       # See: https://github.com/dtolnay/trybuild/issues/236#issuecomment-1620950759
-      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}" --components rust-src
+      - run: rustup toolchain install "${RUST_TOOLCHAIN_VERSION}" --component rust-src
       - uses: Swatinem/rust-cache@779680da715d629ac1d338a641029a2f4372abb5 # v2.8.2
         with:
           key: test
