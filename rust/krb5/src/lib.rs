@@ -101,7 +101,7 @@ impl KrbContext {
     ///
     /// This will be done in the scope of the context, for example the context's default realm will be used if
     /// none is specified in `princ_name`.
-    pub fn parse_principal_name(&self, princ_name: &CStr) -> Result<Principal, Error> {
+    pub fn parse_principal_name(&self, princ_name: &CStr) -> Result<Principal<'_>, Error> {
         let mut principal = std::ptr::null_mut();
         unsafe {
             Error::from_call_result(
@@ -116,7 +116,7 @@ impl KrbContext {
     }
 
     /// Get the default realm configured for this context.
-    pub fn default_realm(&self) -> Result<DefaultRealm, Error> {
+    pub fn default_realm(&self) -> Result<DefaultRealm<'_>, Error> {
         let mut realm: *mut c_char = std::ptr::null_mut();
         unsafe {
             Error::from_call_result(
