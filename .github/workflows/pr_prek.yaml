@@ -1,5 +1,5 @@
 ---
-name: pre-commit
+name: prek
 
 on:
   pull_request:
@@ -12,19 +12,19 @@ env:
 permissions: {}
 
 jobs:
-  pre-commit:
+  prek:
     runs-on: ubuntu-latest
     steps:
       - name: Install host dependencies
-        uses: awalsh128/cache-apt-pkgs-action@5902b33ae29014e6ca012c5d8025d4346556bd40 # v1.4.3
+        uses: awalsh128/cache-apt-pkgs-action@acb598e5ddbc6f68a970c5da0688d2f3a9f04d05 # v1.6.0
         with:
           packages: krb5-user libkrb5-dev libclang-dev liblzma-dev libssl-dev pkg-config apt-transport-https
           version: ubuntu-latest
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: stackabletech/actions/run-pre-commit@4bfd3b65f22af597fe784599c077dc34bf5894a7 # v0.8.0
+      - uses: stackabletech/actions/run-prek@a14cbd08d9e034e2361ea9205b32aff0491885db # v0.15.0
         with:
           rust: ${{ env.RUST_TOOLCHAIN_VERSION }}
           # rust-src is required for trybuild stderr output comparison to work

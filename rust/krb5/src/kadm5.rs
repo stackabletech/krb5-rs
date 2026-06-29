@@ -144,7 +144,7 @@ impl<'a> ServerHandle<'a> {
         &self,
         principal: &Principal,
         kvno: krb5_sys::krb5_kvno,
-    ) -> Result<KeyDataVec, Error> {
+    ) -> Result<KeyDataVec<'_>, Error> {
         let mut key_data = std::ptr::null_mut();
         let mut key_count = 0;
         unsafe {
